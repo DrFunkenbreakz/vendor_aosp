@@ -182,6 +182,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     StitchImage
 
+# Cutout control overlays
+PRODUCT_PACKAGES += \
+    HideCutout \
+    StatusBarStock
+
 # Branding
 include vendor/aosp/config/branding.mk
 
