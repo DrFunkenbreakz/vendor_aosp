@@ -196,8 +196,8 @@ include vendor/aosp/config/branding.mk
 # OTA
 include vendor/aosp/config/ota.mk
 
-# GApps
-include vendor/gapps/config.mk
+# GApps not needed on Slim build with Opengapps instead
+#include vendor/gapps/config.mk
 
 # Pixel Style
 include vendor/pixelstyle/config.mk
@@ -206,7 +206,7 @@ include vendor/pixelstyle/config.mk
 PRODUCT_PACKAGES += \
     Terminal
 
-# Customization
-include vendor/google-customization/config.mk
+# Customization not needed on Slim build
+#include vendor/google-customization/config.mk
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
