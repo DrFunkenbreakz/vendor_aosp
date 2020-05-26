@@ -67,20 +67,10 @@ PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/bin/backuptool_postinstall.sh:system/bin/backuptool_postinstall.sh
 endif
 
-# Offline charger
-ifeq ($(TARGET_PIXEL_CHARGE_ANIM),true)
-PRODUCT_PACKAGES += \
-    charger_res_images \
-    product_charger_res_images
-endif
-
 # Some permissions
 PRODUCT_COPY_FILES += \
     vendor/aosp/config/permissions/backup.xml:system/etc/sysconfig/backup.xml \
-    vendor/aosp/config/permissions/privapp-permissions-evolution.xml:system/etc/permissions/privapp-permissions-evolution.xml \
-    vendor/aosp/config/permissions/privapp-permissions-fm.xml:system/etc/permissions/privapp-permissions-fm.xml \
-    vendor/aosp/config/permissions/privapp-permissions-snap.xml:system/etc/permissions/privapp-permissions-snap.xml \
-    vendor/aosp/config/permissions/privapp-permissions-camera2.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-camera2.xml
+    vendor/aosp/config/permissions/privapp-permissions-evolution.xml:system/etc/permissions/privapp-permissions-evolution.xml
 
 # Copy all custom init rc files
 $(foreach f,$(wildcard vendor/aosp/prebuilt/common/etc/init/*.rc),\
@@ -172,7 +162,13 @@ PRODUCT_PACKAGES += \
     SystemNightOverlay \
     SystemUINightOverlay \
     SystemSolarizedDarkOverlay \
-    SystemUISolarizedDarkOverlay
+    SystemUISolarizedDarkOverlay \
+    SystemMaterialOceanOverlay \
+    SystemUIMaterialOceanOverlay \
+    SystemBakedGreenOverlay \
+    SystemUIBakedGreenOverlay \
+    SystemChocoXOverlay \
+    SystemUIChocoXOverlay
 
 # Themed bootanimation
 TARGET_MISC_BLOCK_OFFSET ?= 0
@@ -186,9 +182,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     StitchImage
 
-# Cutout control overlay
+# Cutout control overlays
 PRODUCT_PACKAGES += \
-    NoCutoutOverlay
+    HideCutout \
+    StatusBarStock
 
 # Branding
 include vendor/aosp/config/branding.mk
